@@ -1,0 +1,130 @@
+<!-- <div class="product-cart" *ngIf="cartItems && cartItems.length > 0">
+  <div class="d-flex">
+    <li *ngFor="let item of cartItems">
+      <img
+        class="card-img-top cart-image"
+        src="{{ item.imageUrl }}"
+        alt="{{ item.title }}"
+      />
+      {{ item.title }}
+      <span>${{ item.price }}</span>
+      <button
+        type="button"
+        class="close"
+        aria-label="Remove Item"
+        (click)="removeFromCart(item.bookId)"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+  </div>
+  <div class="cart-total">
+    <p>
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm"
+        (click)="emptyCart()"
+      >
+        Empty Cart
+      </button>
+    </p>
+    <p class="text-right">
+      <strong class="d-block">Total:</strong>
+      <span class="d-block">${{ totalAmount }}</span>
+    </p>
+  </div>
+</div>
+<div
+  class="d-flex justify-content-center text-centered"
+  *ngIf="cartItems.length == 0"
+>
+  <h1>Cart is empty</h1>
+</div> -->
+
+<section class="h-100" style="background-color: #eee">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+          <div>
+            <p class="mb-0">
+              <span class="text-muted">Sort by:</span>
+              <a href="#!" class="text-body"
+                >price <i class="fas fa-angle-down mt-1"></i
+              ></a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card rounded-3 mb-4" *ngFor="let item of cartItems">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="{{ item.imageUrl }}"
+                  class="img-fluid rounded-3"
+                  alt="Cotton T-shirt"
+                />
+              </div>
+              <div class="col-md-5 col-lg-5 col-xl-5">
+                <p class="lead fw-normal mb-2">{{ item.title }}</p>
+                <p>
+                  <span class="text-muted">{{ item.author }} </span>
+                  <span class="text-muted">{{ item.publisher }} </span>
+                </p>
+              </div>
+
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">${{ item.price }}</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a class="btn btn-danger" (click)="removeFromCart(item.bookId)"
+                  >X</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body p-4 d-flex flex-row justify-content-between">
+            <h4>Total price: $ {{ totalAmount }}</h4>
+            <a class="btn btn-danger" (click)="emptyCart()">Empty cart</a>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body p-4 d-flex flex-row">
+            <div class="form-outline flex-fill">
+              <input
+                type="text"
+                id="form1"
+                class="form-control form-control-lg"
+              />
+              <label class="form-label" for="form1">Discount code</label>
+            </div>
+            <button type="submit" class="btn btn-outline-warning ms-3">
+              Apply
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <button
+              type="submit"
+              class="btn btn-warning btn-block btn-lg"
+              [routerLink]="['/payment']"
+              routerLinkActive="router-link-active"
+              [disabled]="!isLoggedIn"
+              [disabled]="cartItems.length === 0"
+            >
+              Proceed to Pay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

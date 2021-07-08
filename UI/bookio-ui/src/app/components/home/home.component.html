@@ -1,0 +1,91 @@
+<div id="main-container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="display-3 p-3 text-center">Search your book</div>
+      <div class="form-group d-flex justify-content-center">
+        <div class="col-md-4 m-2">
+          <input
+            type="text"
+            class="searchTerm form-control"
+            placeholder="Type to search title"
+            id="title"
+          />
+        </div>
+        <div class="col-md-4 m-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type to search author"
+            id="author"
+          />
+        </div>
+        <div class="col-md-4 m-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type to search price"
+            id="price"
+          />
+        </div>
+        <div class="col-md-4 m-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type to search publisher"
+            id="publisher"
+          />
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center m-3">
+        <button
+          *ngIf="isLoggedIn"
+          mat-raised-button
+          (click)="openDialog()"
+          class="btn btn-success m-2"
+        >
+          Add new book
+        </button>
+      </div>
+      <div *ngFor="let book of books">
+        <div class="d-flex flex-row justify-content-center">
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  class="img-thumbnail"
+                  src="{{ book?.imageUrl }}"
+                  alt="{{ book?.title }}"
+                  [routerLink]="['/book-details/', book.bookId]"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book?.title }}</h5>
+                  <p class="card-text">
+                    {{ book.author }}
+                  </p>
+                  <p class="card-text">
+                    {{ book.publisher }}
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      Number of pages:<b> {{ book?.pages }}</b></small
+                    >
+                  </p>
+                  <div class="d-flex">
+                    <button class="btn btn-primary" (click)="addToCart(book)">
+                      Add to cart
+                    </button>
+                    <div class="p-2">
+                      $<b>{{ book?.price }}</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

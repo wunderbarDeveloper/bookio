@@ -1,0 +1,21 @@
+<div class="container mt-5 mb-5">
+  <h1>User Profile</h1>
+  <div class="card-columns">
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text">Username: {{ username }}</p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text">Email: {{ email }}</p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text">Books: {{ books }}</p>
+      </div>
+    </div>
+  </div>
+  <a class="btn btn-primary" [routerLink]="['/']">Back to Home Page</a>
+</div>

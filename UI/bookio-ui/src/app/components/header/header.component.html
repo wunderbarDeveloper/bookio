@@ -1,0 +1,55 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between"
+>
+  <a routerLink="/" class="navbar-brand" aria-label="Home">
+    <img
+      src="../../assets/bookio-logo.svg"
+      width="30"
+      height="30"
+      class="d-inline-block align-top"
+      alt=""
+    />
+    <span class="bookio-text"> Bookio - the online bookstore </span>
+  </a>
+
+  <div class="d-flex">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item d-flex align-items-center">
+        <a
+          class="nav-link"
+          [routerLink]="['/cart']"
+          routerLinkActive="router-link-active"
+          *ngIf="isLoggedIn"
+          >Cart<i class="m-1 fas fa-shopping-cart"></i>
+        </a>
+      </li>
+      <div *ngIf="isLoggedIn" ngbDropdown class="float-right d-flex">
+        <li class="nav-link" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="profile" (click)="goToUserProfile()" ngbDropdownItem>
+            Profile
+          </button>
+        </li>
+        <li class="nav-link" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="logout" (click)="logout()" ngbDropdownItem>
+            Logout
+          </button>
+        </li>
+        <li class="nav-link">
+          <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+            <img class="account-icon" src="../../assets/avatar.png" />
+            {{ username }}
+          </button>
+        </li>
+      </div>
+
+      <div *ngIf="!isLoggedIn" class="d-flex">
+        <li class="nav-link">
+          <a routerLink="/signup" class="float-right sign-up">Sign up</a>
+        </li>
+        <li class="nav-link">
+          <a routerLink="/login" class="float-right login">Login</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav>

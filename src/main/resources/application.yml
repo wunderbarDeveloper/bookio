@@ -1,0 +1,26 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bookio?useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: zaq1@WSX
+    initialize: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: 5a436d2ac35256
+    password: ccd77376e674d1
+    protocol: smtp
+
+jwt:
+  expiration:
+    time: 9000000

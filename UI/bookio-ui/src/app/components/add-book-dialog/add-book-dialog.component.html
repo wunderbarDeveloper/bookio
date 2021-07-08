@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add book</h2>
+
+<mat-dialog-content [formGroup]="addBookForm">
+  <mat-form-field>
+    <input matInput placeholder="Book title" formControlName="title" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book author" formControlName="author" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book publisher" formControlName="publisher" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book published" formControlName="published" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book price" formControlName="price" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book pages" formControlName="pages" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Book description"
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Book image" formControlName="imageUrl" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()" mat-dialog-close="true">Close</button>
+  <button type="submit" mat-button (click)="save()" mat-dialog-close="false">
+    Save
+  </button>
+</mat-dialog-actions>
